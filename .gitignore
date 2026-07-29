@@ -1,0 +1,21 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+
+# macOS
+.DS_Store
+
+# VS Code settings
+.vscode/
+
+# Uploaded lecture notes
+uploads/
+
+# Generated graph files
+generated/
+
+# Environment variables
+.env
