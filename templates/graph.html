@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="graph-page">
+
+    <div class="graph-header">
+
+        <div>
+
+            <h1>Your Knowledge Graph</h1>
+
+            <p>
+                Explore the connections between
+                concepts in your lecture notes.
+            </p>
+
+        </div>
+
+        <a
+            href="/"
+            class="back-button"
+        >
+            ← Upload another file
+        </a>
+
+    </div>
+
+
+    <div class="graph-container">
+
+        <iframe
+            src="/generated/graph.html"
+            title="Knowledge Graph"
+        ></iframe>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -251,3 +251,61 @@ font-size:32px;
     color: #94a3b8;
 
 }
+
+.graph-page {
+    width: 95%;
+    max-width: 1400px;
+    margin: 40px auto;
+}
+
+
+.graph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+
+.graph-header h1 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+
+.graph-header p {
+    color: #94a3b8;
+}
+
+
+.back-button {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: #334155;
+    transition: 0.2s;
+}
+
+
+.back-button:hover {
+    background: #475569;
+}
+
+
+.graph-container {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 750px;
+}
+
+
+.graph-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
