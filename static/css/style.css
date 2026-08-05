@@ -202,3 +202,52 @@ font-size:32px;
 }
 
 }
+
+.concept-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 20px;
+
+    margin-bottom: 50px;
+}
+
+
+.concept-card {
+
+    background: #1e293b;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    border: 1px solid #334155;
+
+    transition: transform 0.2s ease;
+}
+
+
+.concept-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+.concept-card h3 {
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.concept-card p {
+
+    color: #94a3b8;
+
+}

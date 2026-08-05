@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h2>Important Concepts</h2>
+
+    <p>
+        TF-IDF identified these concepts in your notes.
+    </p>
+
+</div>
+
+
+<div class="concept-list">
+
+    {% for concept, score in concepts %}
+
+        <div class="concept-card">
+
+            <div>
+
+                <h3>{{ concept }}</h3>
+
+                <p>
+                    TF-IDF score:
+                    {{ "%.3f"|format(score) }}
+                </p>
+
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

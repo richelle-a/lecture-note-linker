@@ -1,36 +1,47 @@
 import re
+
 import spacy
 
-# Load the English NLP model once when the application starts.
+
 nlp = spacy.load("en_core_web_sm")
 
 
 class TextPreprocessor:
     """
-    Cleans lecture notes and prepares them for analysis.
+    Cleans lecture notes and prepares them for NLP analysis.
     """
 
     def clean(self, text: str) -> str:
         """
-        Returns cleaned text as a single string.
+        Clean a piece of text and return the result.
         """
 
-        # Convert to lowercase.
         text = text.lower()
 
-        # Remove URLs.
-        text = re.sub(r"http\S+", "", text)
+        text = re.sub(
+            r"http\S+",
+            "",
+            text
+        )
 
-        # Remove numbers.
-        text = re.sub(r"\d+", " ", text)
+        text = re.sub(
+            r"\d+",
+            " ",
+            text
+        )
 
-        # Remove punctuation (keep letters and spaces).
-        text = re.sub(r"[^a-z\s]", " ", text)
+        text = re.sub(
+            r"[^a-z\s]",
+            " ",
+            text
+        )
 
-        # Remove extra whitespace.
-        text = re.sub(r"\s+", " ", text).strip()
+        text = re.sub(
+            r"\s+",
+            " ",
+            text
+        ).strip()
 
-        # Run through spaCy.
         doc = nlp(text)
 
         cleaned_words = []
@@ -41,6 +52,9 @@ class TextPreprocessor:
                 continue
 
             if token.is_space:
+                continue
+
+            if not token.is_alpha:
                 continue
 
             lemma = token.lemma_.strip()

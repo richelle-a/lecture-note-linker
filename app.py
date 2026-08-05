@@ -1,17 +1,26 @@
 from pathlib import Path
-from src.preprocessing import TextPreprocessor
+
 from flask import Flask, render_template, request
 
 from src.file_loader import FileLoader
+from src.preprocessing import TextPreprocessor
+from src.tfidf import TfidfExtractor
+
 
 app = Flask(__name__)
-preprocessor = TextPreprocessor()
+
 
 UPLOAD_FOLDER = Path("uploads")
 UPLOAD_FOLDER.mkdir(exist_ok=True)
 
+
 loader = FileLoader()
 
+preprocessor = TextPreprocessor()
+
+tfidf_extractor = TfidfExtractor(
+    max_features=30
+)
 
 @app.route("/")
 def home():
@@ -32,18 +41,18 @@ def upload():
 
     file.save(filepath)
 
-    text = loader.load(filepath)
-    cleaned_text = preprocessor.clean(text)
+    raw_text = loader.load(filepath)
 
-    return f"""
-    <h2>Preprocessing Complete!</h2>
-    <h3>Original Text</h3>
-    <pre>{text[:500]}</pre>
-    <hr>
-    <h3>Cleaned Text</h3>
-    <pre>{cleaned_text[:500]}</pre>
-    """
+    cleaned_text = preprocessor.clean(raw_text)
 
+    concepts = tfidf_extractor.extract(
+        [cleaned_text]
+    )
+
+    return render_template(
+        "concepts.html",
+        concepts=concepts
+    )
 
 if __name__ == "__main__":
     app.run(debug=True)
