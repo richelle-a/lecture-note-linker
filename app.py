@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 from src.file_loader import FileLoader
 from src.preprocessing import TextPreprocessor
 from src.tfidf import TfidfExtractor
-
+from src.graph_builder import KnowledgeGraphBuilder
 
 app = Flask(__name__)
 
@@ -56,3 +56,8 @@ def upload():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+graph_builder = KnowledgeGraphBuilder(
+    window_size=5
+)
