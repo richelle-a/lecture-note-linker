@@ -1,10 +1,11 @@
 from pathlib import Path
-
+from src.preprocessing import TextPreprocessor
 from flask import Flask, render_template, request
 
 from src.file_loader import FileLoader
 
 app = Flask(__name__)
+preprocessor = TextPreprocessor()
 
 UPLOAD_FOLDER = Path("uploads")
 UPLOAD_FOLDER.mkdir(exist_ok=True)
@@ -32,13 +33,15 @@ def upload():
     file.save(filepath)
 
     text = loader.load(filepath)
+    cleaned_text = preprocessor.clean(text)
 
     return f"""
-    <h2>File Loaded Successfully!</h2>
-
-    <h3>Preview:</h3>
-
-    <pre>{text[:1500]}</pre>
+    <h2>Preprocessing Complete!</h2>
+    <h3>Original Text</h3>
+    <pre>{text[:500]}</pre>
+    <hr>
+    <h3>Cleaned Text</h3>
+    <pre>{cleaned_text[:500]}</pre>
     """
 
 
