@@ -5,50 +5,200 @@
 }
 
 body{
-    background:#111827;
-    color:white;
+
     font-family:Arial, Helvetica, sans-serif;
+
+    background:#0f172a;
+
+    color:white;
+
 }
 
 nav{
-    background:#1f2937;
+
+    background:#111827;
+
     padding:20px;
+
     text-align:center;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.4);
+
 }
 
 .container{
+
     width:90%;
-    max-width:1000px;
+
+    max-width:1300px;
+
     margin:auto;
+
 }
 
 .hero{
+
     text-align:center;
-    margin-top:100px;
+
+    margin:50px 0;
+
 }
 
 .hero h2{
-    font-size:40px;
-    margin-bottom:20px;
+
+    font-size:42px;
+
+    margin-bottom:15px;
 
 }
 
 .hero p{
+
+    color:#cbd5e1;
+
     font-size:20px;
-    color:#cccccc;
-    margin-bottom:40px;
+
+}
+
+.main-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+}
+
+.bottom-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+    margin-top:30px;
+
+}
+
+.card{
+
+    background:#1e293b;
+
+    padding:30px;
+
+    border-radius:16px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+.card h3{
+
+    margin-bottom:20px;
+
+}
+
+textarea{
+
+    width:100%;
+
+    resize:vertical;
+
+}
+
+textarea,input{
+
+    width:100%;
+
+    background:#0f172a;
+
+    color:white;
+
+    border:1px solid #334155;
+
+    border-radius:10px;
+
+    padding:15px;
+
+    margin-bottom:15px;
+
+    font-size:16px;
+
 }
 
 button{
-    background:#3b82f6;
+
+    width:100%;
+
+    background:#2563eb;
+
     color:white;
+
     border:none;
-    padding:15px 40px;
-    border-radius:8px;
+
+    border-radius:10px;
+
+    padding:15px;
+
     cursor:pointer;
-    font-size:18px;
+
+    font-size:17px;
+
+    transition:.25s;
+
 }
 
 button:hover{
-    background:#2563eb;
+
+    background:#3b82f6;
+
+}
+
+.graph-placeholder{
+
+    margin:40px 0;
+
+    height:600px;
+
+    border:2px dashed #475569;
+
+    border-radius:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.graph-placeholder h2{
+
+    margin-bottom:20px;
+
+}
+
+@media(max-width:900px){
+
+.main-grid,
+.bottom-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.hero h2{
+
+font-size:32px;
+
+}
+
 }

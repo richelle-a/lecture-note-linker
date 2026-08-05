@@ -4,16 +4,92 @@
 
 <div class="hero">
 
-    <h2>Build a Knowledge Graph from Your Lecture Notes</h2>
+    <h2>Transform Your Lecture Notes into a Knowledge Graph</h2>
 
     <p>
-        Upload lecture notes or paste text to discover
-        relationships between important concepts.
+        Upload your lecture notes and discover how concepts connect.
     </p>
 
-    <button>
-        Generate Graph
-    </button>
+</div>
+
+<div class="main-grid">
+
+    <div class="card">
+
+        <h3>Upload Notes</h3>
+
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+
+            <input
+                type="file"
+                name="notes"
+                accept=".txt,.pdf,.docx">
+
+            <button type="submit">
+                Upload
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Paste Notes</h3>
+
+        <textarea
+            rows="10"
+            placeholder="Paste your lecture notes here..."></textarea>
+
+        <button>
+            Generate Graph
+        </button>
+
+    </div>
+
+</div>
+
+<div class="bottom-grid">
+
+    <div class="card">
+
+        <h3>Search Concept</h3>
+
+        <input
+            type="text"
+            placeholder="e.g. TCP">
+
+        <button>
+            Search
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Find Shortest Path</h3>
+
+        <input
+            type="text"
+            placeholder="Start concept">
+
+        <input
+            type="text"
+            placeholder="End concept">
+
+        <button>
+            Find Path
+        </button>
+
+    </div>
+
+</div>
+
+<div class="graph-placeholder">
+
+    <h2>Knowledge Graph</h2>
+
+    <p>Your graph will appear here.</p>
 
 </div>
 
